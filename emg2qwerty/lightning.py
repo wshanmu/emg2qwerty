@@ -183,7 +183,8 @@ class TDSConvCTCModule(pl.LightningModule):
         self.ctc_loss = nn.CTCLoss(blank=charset().null_class)
 
         # Decoder
-        self.decoder = instantiate(decoder)
+        self.decoder = instantiate(decoder)  # create an instance of a class or a callable 
+                                             # object based on a configuration dictionary
 
         # Metrics
         metrics = MetricCollection([CharacterErrorRates()])

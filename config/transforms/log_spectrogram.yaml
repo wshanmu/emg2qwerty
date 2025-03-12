@@ -28,10 +28,10 @@ specaug:
 transforms:
   train:
     - ${to_tensor}
-    - ${band_rotation}
-    - ${temporal_jitter}
-    - ${logspec}
-    - ${specaug}
+    # - ${band_rotation}
+    # - ${temporal_jitter}
+    # - ${logspec}
+    # - ${specaug}
 
   val:
     - ${to_tensor}

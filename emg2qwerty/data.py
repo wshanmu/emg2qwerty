@@ -522,8 +522,11 @@ class WindowedEMGDataset(torch.utils.data.Dataset):
         """
         inputs = [sample[0] for sample in samples]  # [(T, ...)]
         targets = [sample[1] for sample in samples]  # [(T,)]
+        # T: The time dimension, representing the length of the sequence/labels.
 
         # Batch of inputs and targets padded along time
+        # T is the length of the longest sequence in the batch.
+        # N is the batch size (number of sequences).
         input_batch = nn.utils.rnn.pad_sequence(inputs)  # (T, N, ...)
         target_batch = nn.utils.rnn.pad_sequence(targets)  # (T, N)
 
